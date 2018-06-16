@@ -8,14 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var spendList: UITableView!
     
-    
+    let arr = ["A" , "B", "C", "D"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        spendList.delegate = self
+        spendList.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +32,17 @@ class ViewController: UIViewController {
         
         self.view.addSubview(popup)
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return arr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell : UITableViewCell = self.spendList.dequeueReusableCell(withIdentifier: "Note", for: indexPath)
+        
+        cell.textLabel?.text = arr[indexPath.row]
+        return cell
     }
     
 }
