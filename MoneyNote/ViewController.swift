@@ -15,47 +15,48 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var pieChart: PieChart!
     
     
-    // 파이 차트 그리기
-    func drawingGraph() {
-
-        pieChart.models = [
-            PieSliceModel(value: 2, color: UIColor.yellow),
-            PieSliceModel(value: 3, color: UIColor.blue),
-            PieSliceModel(value: 1, color: UIColor.green)
-        ]
-        pieChart.insertSlice(index: 2, model: PieSliceModel(value: 2, color: UIColor.black))
-        
-        // 원 내부 퍼센테이지 셋팅
-        let textLayerSettings = PiePlainTextLayerSettings()
-        textLayerSettings.viewRadius = 55
-        textLayerSettings.hideOnOverflow = true
-        textLayerSettings.label.font = UIFont.systemFont(ofSize: 10)
-        
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 1
-        textLayerSettings.label.textGenerator = {slice in
-            return formatter.string(from: slice.data.percentage * 100 as NSNumber).map{"\($0)%"} ?? ""
-        }
-        
-        let textLayer = PiePlainTextLayer()
-        //textLayer.animator = AlphaPieViewLayerAnimator()
-        textLayer.settings = textLayerSettings
-        
-        // 외부 텍스트 표기
-        let lineTextSettings = PieLineTextLayerSettings()
-        lineTextSettings.label.textGenerator = {slice in
-            return formatter.string(from: floor(slice.data.model.value) as NSNumber)!
-        }
-        let lineTextLayer = PieLineTextLayer()
-        lineTextLayer.settings = lineTextSettings
-        
-        
-        pieChart.layers = [textLayer, lineTextLayer]
-        
-        
-        
-    }
+    // MARK: - 파이 차트 그리기
+//    func drawingGraph() {
+//
+//        pieChart.models = [
+//            PieSliceModel(value: 2, color: UIColor.yellow),
+//            PieSliceModel(value: 3, color: UIColor.blue),
+//            PieSliceModel(value: 1, color: UIColor.green)
+//        ]
+//        pieChart.insertSlice(index: 2, model: PieSliceModel(value: 2, color: UIColor.black))
+//
+//        // 원 내부 퍼센테이지 셋팅
+//        let textLayerSettings = PiePlainTextLayerSettings()
+//        textLayerSettings.viewRadius = 55
+//        textLayerSettings.hideOnOverflow = true
+//        textLayerSettings.label.font = UIFont.systemFont(ofSize: 10)
+//
+//        let formatter = NumberFormatter()
+//        formatter.maximumFractionDigits = 1
+//        textLayerSettings.label.textGenerator = {slice in
+//            return formatter.string(from: slice.data.percentage * 100 as NSNumber).map{"\($0)%"} ?? ""
+//        }
+//
+//        let textLayer = PiePlainTextLayer()
+//        //textLayer.animator = AlphaPieViewLayerAnimator()
+//        textLayer.settings = textLayerSettings
+//
+//        // 외부 텍스트 표기
+//        let lineTextSettings = PieLineTextLayerSettings()
+//        lineTextSettings.label.textGenerator = {slice in
+//            return formatter.string(from: floor(slice.data.model.value) as NSNumber)!
+//        }
+//        let lineTextLayer = PieLineTextLayer()
+//        lineTextLayer.settings = lineTextSettings
+//
+//
+//        pieChart.layers = [textLayer, lineTextLayer]
+//
+//
+//
+//    }
     
+    // 소비 테이블 예시 데이터
     let arr = ["A" , "B", "C", "D"]
     
     // 차트 예시 데이터
@@ -67,7 +68,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view, typically from a nib.
         spendList.delegate = self
         spendList.dataSource = self
-        drawingGraph()
+        //drawingGraph()
         self.view.addSubview(pieChart)
 
     }
@@ -78,17 +79,39 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
 
-    // 작성하기 팝업 창
-    @IBAction func choiceSpendOrSave(_ sender: Any) {
-        let popup = UINib(nibName: "PopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! UIView
+    // MARK: - 달력 설정 하루 전, 하루 뒤 이동
+    
+    @IBAction func moveToCalendar(_ sender: Any) {
         
-        popup.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
+        guard let moveToCalendar = self.storyboard?.instantiateViewController(withIdentifier: "calendar") else {
+            return
+        }
         
-        self.view.addSubview(popup)
+        moveToCalendar.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         
+        self.present(moveToCalendar, animated: true)
     }
     
-    // 소비 리스트 테이블
+    
+    
+    
+    // MARK: - 작성하기
+    @IBAction func choiceSpendOrSave(_ sender: Any) {
+//        let popup = UINib(nibName: "PopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! UIView
+//
+//        popup.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
+//
+//        self.view.addSubview(popup)
+        guard let moveToFirstCreateNote = self.storyboard?.instantiateViewController(withIdentifier: "firstCreateNote") else {
+            return
+        }
+        
+        moveToFirstCreateNote.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+        self.present(moveToFirstCreateNote, animated: true)
+    }
+    
+    // MARK: - 소비 리스트 테이블
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arr.count
     }
@@ -100,6 +123,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // 테이블 선택 시 상세화면으로
+        
+        guard let moveToShowDetail = self.storyboard?.instantiateViewController(withIdentifier: "showDetail") else {
+            return
+        }
+        
+        moveToShowDetail.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+        self.present(moveToShowDetail, animated: true)
+        
+    }
     
-    // 차트 만들기
+    
 }

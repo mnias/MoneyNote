@@ -20,14 +20,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeW-J0-ydr">
-                            <rect key="frame" x="164" y="484" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button"/>
-                            <connections>
-                                <action selector="save:" destination="iN0-l3-epB" eventType="touchUpInside" id="JVE-sU-fnU"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="813-wz-NJq">
                             <rect key="frame" x="295" y="28" width="72" height="62"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -36,16 +28,32 @@
                                 <action selector="close:" destination="iN0-l3-epB" eventType="touchUpInside" id="J2Y-Iw-vqY"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TbX-TA-FUF">
-                            <rect key="frame" x="141" y="309" width="93" height="49"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anB-4F-ypm">
-                            <rect key="frame" x="164" y="137" width="46" height="30"/>
+                            <rect key="frame" x="145" y="122" width="85" height="55"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Button"/>
                             <connections>
                                 <action selector="spend:" destination="iN0-l3-epB" eventType="touchUpInside" id="j9T-1U-7Mx"/>
+                                <action selector="touchDragEnter:" destination="iN0-l3-epB" eventType="touchDragEnter" id="iaZ-hm-aQh"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XNq-OC-tnu">
+                            <rect key="frame" x="134" y="299" width="106" height="69"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="spendOrSave:" destination="iN0-l3-epB" eventType="touchDragEnter" id="UdO-ui-BHy"/>
+                                <action selector="tde:" destination="iN0-l3-epB" eventType="touchDragExit" id="jDT-g2-sdi"/>
+                                <action selector="tdi:" destination="iN0-l3-epB" eventType="touchDragInside" id="Fbn-RM-3yU"/>
+                                <action selector="tdo:" destination="iN0-l3-epB" eventType="touchDragOutside" id="njf-bA-EbL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeW-J0-ydr">
+                            <rect key="frame" x="145" y="482" width="85" height="55"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="save:" destination="iN0-l3-epB" eventType="touchUpInside" id="JVE-sU-fnU"/>
                             </connections>
                         </button>
                     </subviews>
@@ -54,9 +62,9 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="myWallet" destination="TbX-TA-FUF" id="yib-j0-ErU"/>
                 <outlet property="save" destination="BeW-J0-ydr" id="dJ7-rp-foX"/>
                 <outlet property="spend" destination="7Cr-OT-fKL" id="t5K-22-V2w"/>
+                <outlet property="wallet" destination="XNq-OC-tnu" id="J8i-yn-xEL"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>
