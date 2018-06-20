@@ -20,6 +20,34 @@
 		81421B6120D3406E0038A0EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81421B5F20D3406E0038A0EB /* Main.storyboard */; };
 		81421B6320D340720038A0EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81421B6220D340720038A0EB /* Assets.xcassets */; };
 		81421B6620D340720038A0EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81421B6420D340720038A0EB /* LaunchScreen.storyboard */; };
+		8145CF4920DA0DD000CA51AA /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8145CF3E20DA0DCF00CA51AA /* FMDatabaseAdditions.m */; };
+		8145CF4A20DA0DD000CA51AA /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 8145CF3F20DA0DCF00CA51AA /* FMDatabase.m */; };
+		8145CF4B20DA0DD000CA51AA /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 8145CF4120DA0DCF00CA51AA /* FMResultSet.m */; };
+		8145CF4C20DA0DD000CA51AA /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8145CF4320DA0DCF00CA51AA /* FMDatabasePool.m */; };
+		8145CF4D20DA0DD000CA51AA /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8145CF4520DA0DD000CA51AA /* FMDatabaseQueue.m */; };
+		8145CF4F20DA0DFF00CA51AA /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8145CF4E20DA0DFF00CA51AA /* libsqlite3.tbd */; };
+		8145CF5320DA0F7500CA51AA /* MoneyNoteDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145CF5220DA0F7500CA51AA /* MoneyNoteDAO.swift */; };
+		8145CF6920DA232C00CA51AA /* rice.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5520DA232A00CA51AA /* rice.png */; };
+		8145CF6A20DA232C00CA51AA /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5620DA232A00CA51AA /* beer.png */; };
+		8145CF6B20DA232C00CA51AA /* create.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5720DA232A00CA51AA /* create.png */; };
+		8145CF6C20DA232C00CA51AA /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5820DA232A00CA51AA /* cancel.png */; };
+		8145CF6D20DA232C00CA51AA /* cash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5920DA232A00CA51AA /* cash.png */; };
+		8145CF6E20DA232C00CA51AA /* confirm.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5A20DA232A00CA51AA /* confirm.png */; };
+		8145CF6F20DA232C00CA51AA /* savePig.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5B20DA232A00CA51AA /* savePig.png */; };
+		8145CF7020DA232C00CA51AA /* spendPig.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5C20DA232B00CA51AA /* spendPig.png */; };
+		8145CF7120DA232C00CA51AA /* heal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5D20DA232B00CA51AA /* heal.png */; };
+		8145CF7220DA232C00CA51AA /* movie.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5E20DA232B00CA51AA /* movie.png */; };
+		8145CF7320DA232C00CA51AA /* bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF5F20DA232B00CA51AA /* bank.png */; };
+		8145CF7420DA232C00CA51AA /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6020DA232B00CA51AA /* card.png */; };
+		8145CF7520DA232C00CA51AA /* lunchbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6120DA232B00CA51AA /* lunchbox.png */; };
+		8145CF7620DA232C00CA51AA /* bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6220DA232B00CA51AA /* bus.png */; };
+		8145CF7720DA232C00CA51AA /* cloth.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6320DA232B00CA51AA /* cloth.png */; };
+		8145CF7820DA232C00CA51AA /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6420DA232C00CA51AA /* coffee.png */; };
+		8145CF7920DA232C00CA51AA /* juice.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6520DA232C00CA51AA /* juice.png */; };
+		8145CF7A20DA232C00CA51AA /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6620DA232C00CA51AA /* phone.png */; };
+		8145CF7B20DA232C00CA51AA /* present.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6720DA232C00CA51AA /* present.png */; };
+		8145CF7C20DA232C00CA51AA /* ramen.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6820DA232C00CA51AA /* ramen.png */; };
+		8145CF8620DA447F00CA51AA /* moneyNote.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF8520DA447F00CA51AA /* moneyNote.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +67,41 @@
 		81421B6220D340720038A0EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81421B6520D340720038A0EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		81421B6720D340720038A0EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8145CF3D20DA0DCE00CA51AA /* MoneyNote-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MoneyNote-Bridging-Header.h"; sourceTree = "<group>"; };
+		8145CF3E20DA0DCF00CA51AA /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		8145CF3F20DA0DCF00CA51AA /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		8145CF4020DA0DCF00CA51AA /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		8145CF4120DA0DCF00CA51AA /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		8145CF4220DA0DCF00CA51AA /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		8145CF4320DA0DCF00CA51AA /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		8145CF4420DA0DD000CA51AA /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		8145CF4520DA0DD000CA51AA /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		8145CF4620DA0DD000CA51AA /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		8145CF4720DA0DD000CA51AA /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		8145CF4820DA0DD000CA51AA /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		8145CF4E20DA0DFF00CA51AA /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		8145CF5220DA0F7500CA51AA /* MoneyNoteDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyNoteDAO.swift; sourceTree = "<group>"; };
+		8145CF5520DA232A00CA51AA /* rice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rice.png; sourceTree = "<group>"; };
+		8145CF5620DA232A00CA51AA /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beer.png; sourceTree = "<group>"; };
+		8145CF5720DA232A00CA51AA /* create.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = create.png; sourceTree = "<group>"; };
+		8145CF5820DA232A00CA51AA /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
+		8145CF5920DA232A00CA51AA /* cash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cash.png; sourceTree = "<group>"; };
+		8145CF5A20DA232A00CA51AA /* confirm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = confirm.png; sourceTree = "<group>"; };
+		8145CF5B20DA232A00CA51AA /* savePig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = savePig.png; sourceTree = "<group>"; };
+		8145CF5C20DA232B00CA51AA /* spendPig.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spendPig.png; sourceTree = "<group>"; };
+		8145CF5D20DA232B00CA51AA /* heal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heal.png; sourceTree = "<group>"; };
+		8145CF5E20DA232B00CA51AA /* movie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movie.png; sourceTree = "<group>"; };
+		8145CF5F20DA232B00CA51AA /* bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bank.png; sourceTree = "<group>"; };
+		8145CF6020DA232B00CA51AA /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
+		8145CF6120DA232B00CA51AA /* lunchbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchbox.png; sourceTree = "<group>"; };
+		8145CF6220DA232B00CA51AA /* bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus.png; sourceTree = "<group>"; };
+		8145CF6320DA232B00CA51AA /* cloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloth.png; sourceTree = "<group>"; };
+		8145CF6420DA232C00CA51AA /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee.png; sourceTree = "<group>"; };
+		8145CF6520DA232C00CA51AA /* juice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juice.png; sourceTree = "<group>"; };
+		8145CF6620DA232C00CA51AA /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		8145CF6720DA232C00CA51AA /* present.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = present.png; sourceTree = "<group>"; };
+		8145CF6820DA232C00CA51AA /* ramen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ramen.png; sourceTree = "<group>"; };
+		8145CF8520DA447F00CA51AA /* moneyNote.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = moneyNote.sqlite; sourceTree = "<group>"; };
 		8B8062B9765EBD1F3CC29F89 /* Pods-MoneyNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyNote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyNote/Pods-MoneyNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8145CF4F20DA0DFF00CA51AA /* libsqlite3.tbd in Frameworks */,
 				39D44A58F2A3CC87FC497A55 /* Pods_MoneyNote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +130,8 @@
 		81421B4F20D3406E0038A0EB = {
 			isa = PBXGroup;
 			children = (
+				8145CF5420DA230D00CA51AA /* image */,
+				8145CF3C20DA0DC000CA51AA /* fmdb */,
 				81421B5A20D3406E0038A0EB /* MoneyNote */,
 				81421B5920D3406E0038A0EB /* Products */,
 				3E0D8A3D00AACE28DBDFA5DB /* Pods */,
@@ -97,13 +163,62 @@
 				8114C06920D74D7100475F90 /* CalenderViewController.swift */,
 				8114C06B20D776EC00475F90 /* FristCreateNote.swift */,
 				8114C06D20D77F8700475F90 /* SecondCreateNote.swift */,
+				8145CF5220DA0F7500CA51AA /* MoneyNoteDAO.swift */,
 			);
 			path = MoneyNote;
+			sourceTree = "<group>";
+		};
+		8145CF3C20DA0DC000CA51AA /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				8145CF8520DA447F00CA51AA /* moneyNote.sqlite */,
+				8145CF4720DA0DD000CA51AA /* FMDatabase.h */,
+				8145CF3F20DA0DCF00CA51AA /* FMDatabase.m */,
+				8145CF4220DA0DCF00CA51AA /* FMDatabaseAdditions.h */,
+				8145CF3E20DA0DCF00CA51AA /* FMDatabaseAdditions.m */,
+				8145CF4820DA0DD000CA51AA /* FMDatabasePool.h */,
+				8145CF4320DA0DCF00CA51AA /* FMDatabasePool.m */,
+				8145CF4420DA0DD000CA51AA /* FMDatabaseQueue.h */,
+				8145CF4520DA0DD000CA51AA /* FMDatabaseQueue.m */,
+				8145CF4020DA0DCF00CA51AA /* FMDB.h */,
+				8145CF4620DA0DD000CA51AA /* FMResultSet.h */,
+				8145CF4120DA0DCF00CA51AA /* FMResultSet.m */,
+				8145CF3D20DA0DCE00CA51AA /* MoneyNote-Bridging-Header.h */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
+		8145CF5420DA230D00CA51AA /* image */ = {
+			isa = PBXGroup;
+			children = (
+				8145CF5F20DA232B00CA51AA /* bank.png */,
+				8145CF5620DA232A00CA51AA /* beer.png */,
+				8145CF6220DA232B00CA51AA /* bus.png */,
+				8145CF5820DA232A00CA51AA /* cancel.png */,
+				8145CF6020DA232B00CA51AA /* card.png */,
+				8145CF5920DA232A00CA51AA /* cash.png */,
+				8145CF6320DA232B00CA51AA /* cloth.png */,
+				8145CF6420DA232C00CA51AA /* coffee.png */,
+				8145CF5A20DA232A00CA51AA /* confirm.png */,
+				8145CF5720DA232A00CA51AA /* create.png */,
+				8145CF5D20DA232B00CA51AA /* heal.png */,
+				8145CF6520DA232C00CA51AA /* juice.png */,
+				8145CF6120DA232B00CA51AA /* lunchbox.png */,
+				8145CF5E20DA232B00CA51AA /* movie.png */,
+				8145CF6620DA232C00CA51AA /* phone.png */,
+				8145CF6720DA232C00CA51AA /* present.png */,
+				8145CF6820DA232C00CA51AA /* ramen.png */,
+				8145CF5520DA232A00CA51AA /* rice.png */,
+				8145CF5B20DA232A00CA51AA /* savePig.png */,
+				8145CF5C20DA232B00CA51AA /* spendPig.png */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 		B2FBD0E0805E13FF0593785D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8145CF4E20DA0DFF00CA51AA /* libsqlite3.tbd */,
 				345F493A9FCA7ED16CCCFFD3 /* Pods_MoneyNote.framework */,
 			);
 			name = Frameworks;
@@ -144,6 +259,7 @@
 				TargetAttributes = {
 					81421B5720D3406E0038A0EB = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -170,10 +286,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8145CF7A20DA232C00CA51AA /* phone.png in Resources */,
 				81421B6620D340720038A0EB /* LaunchScreen.storyboard in Resources */,
+				8145CF7120DA232C00CA51AA /* heal.png in Resources */,
+				8145CF7720DA232C00CA51AA /* cloth.png in Resources */,
+				8145CF6F20DA232C00CA51AA /* savePig.png in Resources */,
+				8145CF6B20DA232C00CA51AA /* create.png in Resources */,
 				81197CCC20D3926000868986 /* PopupView.xib in Resources */,
+				8145CF6920DA232C00CA51AA /* rice.png in Resources */,
+				8145CF7820DA232C00CA51AA /* coffee.png in Resources */,
+				8145CF7520DA232C00CA51AA /* lunchbox.png in Resources */,
+				8145CF7020DA232C00CA51AA /* spendPig.png in Resources */,
+				8145CF7320DA232C00CA51AA /* bank.png in Resources */,
+				8145CF6E20DA232C00CA51AA /* confirm.png in Resources */,
+				8145CF7620DA232C00CA51AA /* bus.png in Resources */,
+				8145CF6A20DA232C00CA51AA /* beer.png in Resources */,
+				8145CF7B20DA232C00CA51AA /* present.png in Resources */,
 				81421B6320D340720038A0EB /* Assets.xcassets in Resources */,
+				8145CF6D20DA232C00CA51AA /* cash.png in Resources */,
+				8145CF7C20DA232C00CA51AA /* ramen.png in Resources */,
+				8145CF7920DA232C00CA51AA /* juice.png in Resources */,
+				8145CF7220DA232C00CA51AA /* movie.png in Resources */,
+				8145CF6C20DA232C00CA51AA /* cancel.png in Resources */,
+				8145CF7420DA232C00CA51AA /* card.png in Resources */,
 				81421B6120D3406E0038A0EB /* Main.storyboard in Resources */,
+				8145CF8620DA447F00CA51AA /* moneyNote.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,11 +378,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8114C06A20D74D7100475F90 /* CalenderViewController.swift in Sources */,
+				8145CF4C20DA0DD000CA51AA /* FMDatabasePool.m in Sources */,
 				81197CF420D6B2FE00868986 /* showDetail.swift in Sources */,
 				8114C06C20D776EC00475F90 /* FristCreateNote.swift in Sources */,
+				8145CF4D20DA0DD000CA51AA /* FMDatabaseQueue.m in Sources */,
+				8145CF4A20DA0DD000CA51AA /* FMDatabase.m in Sources */,
 				81197CCE20D392CB00868986 /* SpendOrSave.swift in Sources */,
+				8145CF5320DA0F7500CA51AA /* MoneyNoteDAO.swift in Sources */,
 				81421B5E20D3406E0038A0EB /* ViewController.swift in Sources */,
+				8145CF4920DA0DD000CA51AA /* FMDatabaseAdditions.m in Sources */,
 				81197CC820D37AD800868986 /* MoneyUseVO.swift in Sources */,
+				8145CF4B20DA0DD000CA51AA /* FMResultSet.m in Sources */,
 				81421B5C20D3406E0038A0EB /* AppDelegate.swift in Sources */,
 				8114C06E20D77F8700475F90 /* SecondCreateNote.swift in Sources */,
 			);
@@ -392,6 +535,7 @@
 			baseConfigurationReference = 8B8062B9765EBD1F3CC29F89 /* Pods-MoneyNote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MoneyNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -400,6 +544,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GHP.MoneyNote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "fmdb/MoneyNote-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -410,6 +556,7 @@
 			baseConfigurationReference = 4E328B8973D10E8E18783C21 /* Pods-MoneyNote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = MoneyNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -418,6 +565,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.GHP.MoneyNote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "fmdb/MoneyNote-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
