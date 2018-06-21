@@ -36,24 +36,31 @@ class MoneyNoteDAO {
     deinit {
         self.fmdb.close()
     }
-    func find() -> [MoneyNoteRecord] {
+    func find(date: String) -> [MoneyNoteRecord] {
         // 반환할 데이터 담을 [DepartRecord] 타입의 객체 정의
         var spendList = [MoneyNoteRecord]()
         do {
             let sql = """
                 SELECT row, contents, icon, spendorsave, date, price
                 FROM note
+                WHERE date = ?
             """
             
-            let rs = try self.fmdb.executeQuery(sql, values: nil)
-            
+            let rs = try self.fmdb.executeQuery(sql, values: [date])
+            print(rs)
             while rs.next() {
                 let row = rs.int(forColumn: "row")
+                print(row)
                 let contents = rs.string(forColumn: "contents")
+                print(contents!)
                 let icon = rs.string(forColumn: "icon")
+                print(icon!)
                 let spendorsave = rs.string(forColumn: "spendorsave")
+                print(spendorsave!)
                 let date = rs.string(forColumn: "date")
+                print(date!)
                 let price = rs.int(forColumn: "price")
+                print(price)
                 //let totalMoney = rs.int(forColumn: "totalMoney")
                 
                 spendList.append(( Int(row), contents!, icon!, spendorsave!, date!, Int(price) ))
@@ -64,14 +71,78 @@ class MoneyNoteDAO {
         return spendList
     }
     
-//    func get(date: String) -> MoneyNoteRecord? {
-//        // 날짜를 기준으로 값을 가져온다.
-//        let sql = """
-//            SELECT row, contents, icon, spendorsave, date, price
-//            FROM note
-//            WHERE date = ?
-//        """
-//
-//        let rs = self.fmdb.executeQuery(sql, withAr)
-//    }
+    func get(date: String) -> MoneyNoteRecord? {
+        // 날짜를 기준으로 값을 가져온다.
+        let sql = """
+            SELECT row, contents, icon, spendorsave, date, price
+            FROM note
+            WHERE date = ?
+        """
+
+        let rs = self.fmdb.executeQuery(sql, withArgumentsIn: [date])
+        
+        // 결과 받기
+        if let _rs = rs {
+            _rs.next()
+            
+            let row = _rs.int(forColumn: "row")
+            let content = _rs.string(forColumn: "contents")
+            let icon = _rs.string(forColumn: "icon")
+            let spendorsave = _rs.string(forColumn: "spendorsave")
+            let date = _rs.string(forColumn: "date")
+            let price = _rs.int(forColumn: "price")
+            
+            return ( Int(row), content!, icon!, spendorsave!, date!, Int(price) )
+            
+        } else {
+            return nil
+        }
+    }
+    
+    func get(row: Int, date: String) -> MoneyNoteRecord? {
+        // 상세 보기에 사용될 함수 row값을 넘겨 받아 가져온다.
+        let sql = """
+            SELECT row, contents, icon, spendorsave, date, price
+            FROM note
+            WHERE row = ? and date = ?
+        """
+        
+        let rs = self.fmdb.executeQuery(sql, withArgumentsIn: [row,date])
+        
+        // 결과 받기
+        if let _rs = rs {
+            _rs.next()
+            
+            let row = _rs.int(forColumn: "row")
+            let content = _rs.string(forColumn: "contents")
+            let icon = _rs.string(forColumn: "icon")
+            let spendorsave = _rs.string(forColumn: "spendorsave")
+            let date = _rs.string(forColumn: "date")
+            let price = _rs.int(forColumn: "price")
+            
+            return ( Int(row), content!, icon!, spendorsave!, date!, Int(price) )
+            
+        } else {
+            return nil
+        }
+    }
+    
+    // 노트 작성하기
+    func create(content: String!, icon: String!, spendorsave: String!, date: String!, price: Int!) -> Bool {
+        do {
+            let sql = """
+                INSERT INTO note (contents, icon, spendorsave, date, price)
+                VALUES (?,?,?,?,?)
+            """
+            
+            try self.fmdb.executeUpdate(sql, values: [content, icon, spendorsave, date, price])
+            return true
+        } catch let error as NSError {
+            print("Insert Error: \(error.localizedDescription)")
+            return false
+        }
+    }
+    
+    // 노트 삭제하기
+    
 }

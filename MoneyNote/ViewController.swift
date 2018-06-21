@@ -17,57 +17,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var today: UILabel!
     
+    // 데이터 소스용 변수
+    var noteList: [(row: Int, contents: String, icon: String, spendorsave: String, date: String, price: Int)]!
     
-    
-    
-    // MARK: - 파이 차트 그리기
-//    func drawingGraph() {
-//
-//        pieChart.models = [
-//            PieSliceModel(value: 2, color: UIColor.yellow),
-//            PieSliceModel(value: 3, color: UIColor.blue),
-//            PieSliceModel(value: 1, color: UIColor.green)
-//        ]
-//        pieChart.insertSlice(index: 2, model: PieSliceModel(value: 2, color: UIColor.black))
-//
-//        // 원 내부 퍼센테이지 셋팅
-//        let textLayerSettings = PiePlainTextLayerSettings()
-//        textLayerSettings.viewRadius = 55
-//        textLayerSettings.hideOnOverflow = true
-//        textLayerSettings.label.font = UIFont.systemFont(ofSize: 10)
-//
-//        let formatter = NumberFormatter()
-//        formatter.maximumFractionDigits = 1
-//        textLayerSettings.label.textGenerator = {slice in
-//            return formatter.string(from: slice.data.percentage * 100 as NSNumber).map{"\($0)%"} ?? ""
-//        }
-//
-//        let textLayer = PiePlainTextLayer()
-//        //textLayer.animator = AlphaPieViewLayerAnimator()
-//        textLayer.settings = textLayerSettings
-//
-//        // 외부 텍스트 표기
-//        let lineTextSettings = PieLineTextLayerSettings()
-//        lineTextSettings.label.textGenerator = {slice in
-//            return formatter.string(from: floor(slice.data.model.value) as NSNumber)!
-//        }
-//        let lineTextLayer = PieLineTextLayer()
-//        lineTextLayer.settings = lineTextSettings
-//
-//
-//        pieChart.layers = [textLayer, lineTextLayer]
-//
-//
-//
-//    }
-    
-    // 소비 테이블 예시 데이터
-    let arr = ["A" , "B", "C", "D"]
-    
-    // 차트 예시 데이터
-    let numbers = [1,2,3,4,5]
-    //
-    
+    var moneyDAO = MoneyNoteDAO() // SQLite를 담당할 객체
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -75,18 +29,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.spendList.dataSource = self
         
         self.calendar.delegate = self
-        //drawingGraph()
-        //self.view.addSubview(pieChart)
         calendar.appearance.borderRadius = 0
-        
+        // 오늘 날짜 표시
         makeLabelTextToday()
         
+        
+        print("Aa")
+        print(today.text!)
+        print("aA")
+        self.noteList = self.moneyDAO.find(date: today.text!)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
     }
 
     
@@ -108,9 +64,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         makeDate.dateFormat = "YYYY년 M월 d일"
         let dateString = makeDate.string(from: yesterday as Date)
         self.today.text = dateString
-
         calendar.reloadData()
-        //print(self.calendar.selectedDate!)
+        self.noteList = self.moneyDAO.find(date: today.text!)
+        spendList.reloadData()
     }
     
     // 내일
@@ -126,6 +82,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         makeDate.dateFormat = "YYYY년 M월 d일"
         let dateString = makeDate.string(from: tomorrow as Date)
         self.today.text = dateString
+        
+        self.noteList = self.moneyDAO.find(date: today.text!)
+        spendList.reloadData()
     }
     
     // 날짜 선택 시
@@ -164,9 +123,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         changedDate.append("-"+newDate[2])
         changedDate.append("-"+newDate[4])
         changedDate.append(" 00:00:00 +0000")
-        
-        
-        
     }
     
     // 메인 Label 값을 날짜로 변경
@@ -178,15 +134,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - 작성하기
     @IBAction func choiceSpendOrSave(_ sender: Any) {
-//        let popup = UINib(nibName: "PopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! UIView
-//
-//        popup.backgroundColor = UIColor(white: 0.3, alpha: 0.9)
-//
-//        self.view.addSubview(popup)
         guard let moveToFirstCreateNote = self.storyboard?.instantiateViewController(withIdentifier: "firstCreateNote") else {
             return
         }
-        
         moveToFirstCreateNote.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         
         self.present(moveToFirstCreateNote, animated: true)
@@ -194,23 +144,32 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - 소비 리스트 테이블
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arr.count
+        return noteList.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = self.spendList.dequeueReusableCell(withIdentifier: "Note", for: indexPath)
         
-        cell.textLabel?.text = arr[indexPath.row]
+        let rowData = self.noteList[indexPath.row]
+        let cell = spendList.dequeueReusableCell(withIdentifier: "Note") as! NoteCell
+        cell.spendPig.image = UIImage(named: rowData.spendorsave)
+        cell.content.text = rowData.contents
+        cell.price.text = String(rowData.price)
+        cell.icon.image = UIImage(named: rowData.icon)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 테이블 선택 시 상세화면으로
-        
+        print(indexPath.row)
+        let moveRow = self.noteList[indexPath.row].row
+        let moveDate = self.noteList[indexPath.row].date
         guard let moveToShowDetail = self.storyboard?.instantiateViewController(withIdentifier: "showDetail") else {
             return
         }
-        
+        if let _moveToShowDetial = moveToShowDetail as? showDetail {
+            _moveToShowDetial.movedRow = moveRow
+            _moveToShowDetial.movedDate = moveDate
+        }
         moveToShowDetail.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         
         self.present(moveToShowDetail, animated: true)
