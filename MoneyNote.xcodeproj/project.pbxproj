@@ -40,7 +40,7 @@
 		8145CF7420DA232C00CA51AA /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6020DA232B00CA51AA /* card.png */; };
 		8145CF7520DA232C00CA51AA /* lunchbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6120DA232B00CA51AA /* lunchbox.png */; };
 		8145CF7620DA232C00CA51AA /* bus.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6220DA232B00CA51AA /* bus.png */; };
-		8145CF7720DA232C00CA51AA /* cloth.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6320DA232B00CA51AA /* cloth.png */; };
+		8145CF7720DA232C00CA51AA /* clothes.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6320DA232B00CA51AA /* clothes.png */; };
 		8145CF7820DA232C00CA51AA /* coffee.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6420DA232C00CA51AA /* coffee.png */; };
 		8145CF7920DA232C00CA51AA /* juice.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6520DA232C00CA51AA /* juice.png */; };
 		8145CF7A20DA232C00CA51AA /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6620DA232C00CA51AA /* phone.png */; };
@@ -95,7 +95,7 @@
 		8145CF6020DA232B00CA51AA /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
 		8145CF6120DA232B00CA51AA /* lunchbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lunchbox.png; sourceTree = "<group>"; };
 		8145CF6220DA232B00CA51AA /* bus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bus.png; sourceTree = "<group>"; };
-		8145CF6320DA232B00CA51AA /* cloth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloth.png; sourceTree = "<group>"; };
+		8145CF6320DA232B00CA51AA /* clothes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clothes.png; sourceTree = "<group>"; };
 		8145CF6420DA232C00CA51AA /* coffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coffee.png; sourceTree = "<group>"; };
 		8145CF6520DA232C00CA51AA /* juice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = juice.png; sourceTree = "<group>"; };
 		8145CF6620DA232C00CA51AA /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
@@ -200,7 +200,7 @@
 				8145CF5820DA232A00CA51AA /* cancel.png */,
 				8145CF6020DA232B00CA51AA /* card.png */,
 				8145CF5920DA232A00CA51AA /* cash.png */,
-				8145CF6320DA232B00CA51AA /* cloth.png */,
+				8145CF6320DA232B00CA51AA /* clothes.png */,
 				8145CF6420DA232C00CA51AA /* coffee.png */,
 				8145CF5A20DA232A00CA51AA /* confirm.png */,
 				8145CF5720DA232A00CA51AA /* create.png */,
@@ -292,7 +292,7 @@
 				8145CF7A20DA232C00CA51AA /* phone.png in Resources */,
 				81421B6620D340720038A0EB /* LaunchScreen.storyboard in Resources */,
 				8145CF7120DA232C00CA51AA /* heal.png in Resources */,
-				8145CF7720DA232C00CA51AA /* cloth.png in Resources */,
+				8145CF7720DA232C00CA51AA /* clothes.png in Resources */,
 				8145CF6F20DA232C00CA51AA /* savePig.png in Resources */,
 				8145CF6B20DA232C00CA51AA /* create.png in Resources */,
 				81197CCC20D3926000868986 /* PopupView.xib in Resources */,

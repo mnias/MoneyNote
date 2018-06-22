@@ -10,11 +10,15 @@ import UIKit
 
 class FirstCreateNote: UIViewController {
 
+    var pigName: String!
+    var price: Int!
+    var date: String!
+    
+    @IBOutlet weak var priceField: UITextField!
+    
     @IBAction func backToMain(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +34,32 @@ class FirstCreateNote: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        
         self.view.endEditing(true)
-        
     }
 
+    @IBAction func moveToCreatePageWithSavePig(_ sender: Any) {
+        guard let moveToSecondCreateNote = self.storyboard?.instantiateViewController(withIdentifier: "secondCreateNote") else {
+            return
+        }
+        
+        let need = moveToSecondCreateNote as! SecondCreateNote
+        let btn = sender as! UIButton
+        pigName = btn.currentTitle
+        price = Int(priceField.text!)
+        
+        need.movedPigName = pigName
+        need.movedPrice = price
+        need.movedDate = date
+        
+        print(pigName!)
+        print(date)
+        print(need.movedDate)
+        moveToSecondCreateNote.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        
+        self.present(moveToSecondCreateNote, animated: true)
+    }
+    
+    
     /*
     // MARK: - Navigation
 

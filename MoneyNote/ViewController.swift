@@ -17,6 +17,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var today: UILabel!
     
+    @IBOutlet weak var totalMoney: UILabel!
+    @IBOutlet weak var totalSpendMoney: UILabel!
+    @IBOutlet weak var totalMonthSpendMoney: UILabel!
+    
     // 데이터 소스용 변수
     var noteList: [(row: Int, contents: String, icon: String, spendorsave: String, date: String, price: Int)]!
     
@@ -38,8 +42,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print(today.text!)
         print("aA")
         self.noteList = self.moneyDAO.find(date: today.text!)
+        self.totalMoney.text! = String(self.moneyDAO.findTotal())
     }
 
+    override func viewWillLayoutSubviews() {
+        spendList.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -84,6 +93,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.today.text = dateString
         
         self.noteList = self.moneyDAO.find(date: today.text!)
+        print(today.text!)
         spendList.reloadData()
     }
     
@@ -96,9 +106,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.today.text = dateString
         
         let now = NSDate(timeInterval: 60*60*9, since: calendar.selectedDate!)
-        print(monthPosition.rawValue)
-        print(monthPosition.hashValue)
-        print(self.calendar.selectedDate!)
+        //print(monthPosition.rawValue)
+        //print(monthPosition.hashValue)
+        //print(self.calendar.selectedDate!)
         print(now)
     }
     
@@ -134,9 +144,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: - 작성하기
     @IBAction func choiceSpendOrSave(_ sender: Any) {
+        
         guard let moveToFirstCreateNote = self.storyboard?.instantiateViewController(withIdentifier: "firstCreateNote") else {
             return
         }
+        let movePara = moveToFirstCreateNote as! FirstCreateNote
+        movePara.date = today.text!
+        //print(movePara.date)
+        
         moveToFirstCreateNote.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
         
         self.present(moveToFirstCreateNote, animated: true)
@@ -176,5 +191,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let rowData = self.noteList[indexPath.row]
+            if moneyDAO.remove(row: rowData.row) {
+                
+                self.noteList.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                print("DB에서 삭제하였습니다.")
+                
+            }
+        }
+    }
     
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "삭제"
+    }
 }

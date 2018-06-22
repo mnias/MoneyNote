@@ -22,9 +22,10 @@ class showDetail: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var row: UILabel!
     
+    @IBOutlet weak var changeIcon: UIView!
     var para: MemoData?
     
-    typealias showdetail = (row: Int, contents: String, spendorsave: String, icon: String, date: String, price: Int)
+    typealias showdetail = (row: Int, contents: String, icon: String, spendorsave: String, date: String, price: Int)
     var movedRow: Int!
     var movedDate: String!
     let thisMoneyNoteDAO = MoneyNoteDAO()
@@ -35,19 +36,6 @@ class showDetail: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         contentText.delegate = self
         price.delegate = self
-//        self.price.delegate = self
-//        self.contentText.delegate = self
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        // Do any additional setup after loading the view.
-        
-        // 화면에 테이블 값 표시
-//        let vprice = para?.price!
-//        self.price.text = String(vprice!)
-//        self.contentText.text = para?.contents
-//        self.spendPig.imageView?.image = UIImage(named: (para?.spendorsave!)!)
-//        self.icon.imageView?.image = UIImage(named: (para?.icon!)!)
-//        self.row.text = String((para?.row!)!)
-//        //self.icon.imageView?.image = UIImage(named: para?.icon!)
         
         self.moneyNoteInfo = self.thisMoneyNoteDAO.get(row: movedRow, date: movedDate)
         self.price.text = String(self.moneyNoteInfo!.price)
@@ -60,6 +48,8 @@ class showDetail: UIViewController, UITextViewDelegate {
         self.row.text = String(self.moneyNoteInfo!.row)
         self.date.text = self.moneyNoteInfo!.date
         print(movedRow)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,11 +57,67 @@ class showDetail: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    // 밑에서 아이콘 올라오기
+    @IBOutlet weak var changeIconConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var changePig: NSLayoutConstraint!
+    
+    var changeIconMenu = false
+    
+    var changePigMenu = false
+    
+    @IBAction func upAndDownChangeIcon(_ sender: UIButton) {
+        if changeIconMenu {
+            self.changeIconConstraint.constant = 200
+        } else {
+            self.changeIconConstraint.constant = 0
+            UIView.animate(withDuration: 0.3){
+                self.view.layoutIfNeeded()
+            }
+        }
+        changeIconMenu = !changeIconMenu
+    }
+    
+    @IBAction func upAndDownPig(_ sender: UIButton) {
+        if changePigMenu {
+            self.changePig.constant = -375
+        } else {
+            self.changePig.constant = 0
+            UIView.animate(withDuration: 0.3){
+                self.view.layoutIfNeeded()
+            }
+        }
+        changePigMenu = !changePigMenu
+    }
+    
+    // 아이콘 변경
+    var iconName: String?
+    @IBAction func chagneIcon(_ sender: UIButton) {
+        let iconName = sender.currentTitle
+        print(iconName!)
+        
+        let changedIcon = UIImage(named: iconName!)
+        self.icon.setBackgroundImage(changedIcon, for: .normal)
+    }
+    
+    // 돼지 아이콘 변경
+    var pigName: String?
+    @IBAction func changePig(_ sender: UIButton) {
+        let pigName = sender.currentTitle
+        //print(pigName!)
+        
+        let changedIcon = UIImage(named: pigName!)
+        self.icon.setBackgroundImage(changedIcon, for: .normal)
+    }
+    
+    
+    
     // 메인화면으로 이동
     @IBAction func backToMain(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true)
     }
     
+    //override func textView
     
     // MARK: 키보드 관련
     func textViewDidBeginEditing(_ textView: UITextView) {

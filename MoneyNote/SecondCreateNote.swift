@@ -11,14 +11,28 @@ import UIKit
 class SecondCreateNote: UIViewController {
 
     @IBOutlet weak var bigBack: UIView! // 제일 큰 배경, 색상용
-    @IBOutlet weak var pigBack: UIView! // 소비,저축 아이콘 배경용
-    @IBOutlet weak var iconBack: UIView! // 아이콘 배경용
     @IBOutlet weak var howMuch: UITextView! // 돈 표시
     
+    @IBOutlet weak var pig: UIImageView!
+    @IBOutlet weak var icon: UIImageView!
+    
+    @IBOutlet weak var content: UITextView!
+    
+    var movedPigName: String!
+    var movedPrice: Int!
+    var movedDate: String!
+    var iconName: String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print(movedPigName!)
+        self.pig.image = UIImage(named: movedPigName)
+        if( movedPrice == nil ) {
+            self.howMuch.text = String(0)
+        } else {
+            self.howMuch.text = String(movedPrice)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +45,23 @@ class SecondCreateNote: UIViewController {
     }
     
     @IBAction func createNote(_ sender: Any) {
+        guard let t = iconName else {
+            print("아이콘을 선택해주세요.")
+            // 얼럿 창 띄우기
+            return
+        }
+        print("bbbb")
+        let create = MoneyNoteDAO()
+        let confirmOrFail = create.create(content: self.content.text!, icon: self.iconName!, spendorsave: self.movedPigName!, date: movedDate!, price: movedPrice!)
         
+        if confirmOrFail {
+            // 경고창
+            print("성공하였습니다.")
+            //backToMain(UIStoryboardSegue)
+        } else {
+            // 경고창
+            print("실패하였습니다.")
+        }
     }
     
     // MARK: - 키보드 관련
@@ -55,6 +85,16 @@ class SecondCreateNote: UIViewController {
     // 화면 높이 원상복귀
     func keyboardWillHide(_ sender: Notification) {
         self.view.frame.origin.y = 0 // Move view to original position
+    }
+    
+    // MARK: - 아이콘 버튼 클릭
+    
+    @IBAction func changeIcon(_ sender: UIButton) {
+        let iconName = sender.currentTitle!
+        print(iconName)
+        self.iconName = iconName+".png"
+        print(self.iconName!)
+        self.icon.image = UIImage(named: iconName+".png")
     }
     
     /*

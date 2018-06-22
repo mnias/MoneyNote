@@ -71,6 +71,26 @@ class MoneyNoteDAO {
         return spendList
     }
     
+    // 총 잔액용
+    func findTotal() -> Int {
+        var totalMoney = 0
+        do {
+            let sql = """
+                SELECT totalMoney
+                FROM totalMoney
+            """
+            let rs = try self.fmdb.executeQuery(sql, values: nil)
+            while rs.next() {
+                let ttm = rs.int(forColumn: "totalMoney")
+                totalMoney = Int(ttm)
+            }
+        } catch let error as NSError {
+            print("failed: \(error.localizedDescription)")
+        }
+        return totalMoney
+    }
+    //
+    
     func get(date: String) -> MoneyNoteRecord? {
         // 날짜를 기준으로 값을 가져온다.
         let sql = """
@@ -144,5 +164,14 @@ class MoneyNoteDAO {
     }
     
     // 노트 삭제하기
-    
+    func remove(row: Int!) -> Bool {
+        do {
+            let sql = "DELETE FROM note WHERE row = ?"
+            try self.fmdb.executeUpdate(sql, values: [row])
+            return true
+        } catch let error as NSError {
+            print("DELETE Error: \(error.localizedDescription)")
+            return false
+        }
+    }
 }
