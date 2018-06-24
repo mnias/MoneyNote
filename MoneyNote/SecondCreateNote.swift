@@ -40,12 +40,12 @@ class SecondCreateNote: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func backToMain(_ segue: UIStoryboardSegue) {
-         
+    @IBAction func X(_ sender: Any) {
+        self.performSegue(withIdentifier: "backToMainPage", sender: self)
     }
     
     @IBAction func createNote(_ sender: Any) {
-        guard let t = iconName else {
+        guard let _ = iconName else {
             print("아이콘을 선택해주세요.")
             // 얼럿 창 띄우기
             return
@@ -55,11 +55,32 @@ class SecondCreateNote: UIViewController {
         let confirmOrFail = create.create(content: self.content.text!, icon: self.iconName!, spendorsave: self.movedPigName!, date: movedDate!, price: movedPrice!)
         
         if confirmOrFail {
-            // 경고창
+            // 알림창
+            let alert = UIAlertController(title: "노트 작성 완료", message: nil, preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: "확인", style: .default) {
+                (_) in
+                self.performSegue(withIdentifier: "backToMainPage", sender: self)
+            }
+            let cancel = UIAlertAction(title: "취소", style: .cancel)
+            
+            alert.addAction(ok)
+            alert.addAction(cancel)
+            
+            self.present(alert, animated: true)
+            
             print("성공하였습니다.")
             //backToMain(UIStoryboardSegue)
         } else {
-            // 경고창
+            // 알림창
+            let alert = UIAlertController(title: "노트 작성 실패", message: nil, preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: "확인", style: .cancel)
+            
+            alert.addAction(ok)
+            
+            self.present(alert, animated: true)
+            
             print("실패하였습니다.")
         }
     }

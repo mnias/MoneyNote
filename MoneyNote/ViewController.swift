@@ -54,6 +54,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: - 메인으로 돌아오기
+    @IBAction func backToMainPage(_ segue: UIStoryboardSegue){
+        
+    }
     
     
     // MARK: - 달력 설정 하루 전, 하루 뒤 이동
@@ -170,6 +174,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.content.text = rowData.contents
         cell.price.text = String(rowData.price)
         cell.icon.image = UIImage(named: rowData.icon)
+        
+        
         
         return cell
     }

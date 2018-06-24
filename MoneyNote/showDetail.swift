@@ -22,7 +22,7 @@ class showDetail: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var row: UILabel!
     
-    @IBOutlet weak var changeIcon: UIView!
+    //@IBOutlet weak var changeIcon: UIView!
     var para: MemoData?
     
     typealias showdetail = (row: Int, contents: String, icon: String, spendorsave: String, date: String, price: Int)
@@ -107,7 +107,7 @@ class showDetail: UIViewController, UITextViewDelegate {
         //print(pigName!)
         
         let changedIcon = UIImage(named: pigName!)
-        self.icon.setBackgroundImage(changedIcon, for: .normal)
+        self.spendPig.setBackgroundImage(changedIcon, for: .normal)
     }
     
     

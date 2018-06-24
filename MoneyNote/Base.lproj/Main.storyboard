@@ -115,8 +115,8 @@
                                     <action selector="yesterday:" destination="Ozq-Ff-Jdp" eventType="touchUpInside" id="d1X-pw-PX0"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="잔액 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzy-9B-Fqg">
-                                <rect key="frame" x="16" y="24" width="41" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="수입 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gzy-9B-Fqg">
+                                <rect key="frame" x="16" y="24" width="43" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -456,8 +456,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="X" image="cancel.png"/>
                                 <connections>
-                                    <action selector="backToMain:" destination="qEv-XJ-r94" eventType="touchUpInside" id="kwA-aU-3mr"/>
-                                    <segue destination="rvL-Py-kTr" kind="unwind" unwindAction="backToMain:" id="nBp-cf-0XX"/>
+                                    <action selector="X:" destination="qEv-XJ-r94" eventType="touchUpInside" id="oSm-Z0-hpm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vIR-Po-KGe">
@@ -478,6 +477,7 @@
                         <outlet property="howMuch" destination="506-iu-jUr" id="uJY-5j-s3P"/>
                         <outlet property="icon" destination="GNj-Fq-4cr" id="X2g-y1-g3E"/>
                         <outlet property="pig" destination="mLh-Ot-fc8" id="yIQ-9m-JNi"/>
+                        <segue destination="rvL-Py-kTr" kind="unwind" identifier="backToMainPage" unwindAction="backToMainPage:" id="ZFf-W2-UKM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eyd-SA-vYD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -725,11 +725,39 @@
                                     <constraint firstAttribute="height" constant="200" id="2s3-PD-K7d"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpH-7m-KXE">
+                                <rect key="frame" x="-375" y="567" width="375" height="100"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFx-cs-XOt">
+                                        <rect key="frame" x="95" y="15" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="savePig.png" image="savePig.png"/>
+                                        <connections>
+                                            <action selector="changePig:" destination="hQV-RB-8Kp" eventType="touchUpInside" id="VB6-pP-ouf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2H-hu-5sP">
+                                        <rect key="frame" x="206" y="15" width="70" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="spendPig.png" image="spendPig.png"/>
+                                        <connections>
+                                            <action selector="changePig:" destination="hQV-RB-8Kp" eventType="touchUpInside" id="PUA-xa-wNP"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="0G3-BB-iK7"/>
+                                    <constraint firstAttribute="width" constant="375" id="EV0-Nc-EFn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8yK-Jh-Xdk" firstAttribute="leading" secondItem="pqi-WP-RkX" secondAttribute="leading" id="JzX-EI-txW"/>
+                            <constraint firstItem="8yK-Jh-Xdk" firstAttribute="top" secondItem="RpH-7m-KXE" secondAttribute="bottom" id="KWd-1t-hUh"/>
                             <constraint firstItem="8yK-Jh-Xdk" firstAttribute="bottom" secondItem="pqi-WP-RkX" secondAttribute="bottom" constant="200" id="Ov2-CV-CsH"/>
+                            <constraint firstItem="RpH-7m-KXE" firstAttribute="leading" secondItem="pqi-WP-RkX" secondAttribute="leading" constant="-375" id="bUK-k0-kFg"/>
                             <constraint firstItem="8yK-Jh-Xdk" firstAttribute="trailing" secondItem="pqi-WP-RkX" secondAttribute="trailing" id="bgw-ed-1IU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pqi-WP-RkX"/>
@@ -737,6 +765,7 @@
                     <navigationItem key="navigationItem" title="Title" id="dqL-Dl-WyX"/>
                     <connections>
                         <outlet property="changeIconConstraint" destination="Ov2-CV-CsH" id="rui-l9-axw"/>
+                        <outlet property="changePig" destination="bUK-k0-kFg" id="exA-v6-cgB"/>
                         <outlet property="contentText" destination="z0q-Je-Kdi" id="YBg-bi-114"/>
                         <outlet property="date" destination="2bv-13-Ezt" id="cbt-6u-ljP"/>
                         <outlet property="icon" destination="woj-4T-ycD" id="uG3-Dg-pN7"/>
