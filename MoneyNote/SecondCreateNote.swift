@@ -52,6 +52,11 @@ class SecondCreateNote: UIViewController {
         }
         print("bbbb")
         let create = MoneyNoteDAO()
+        ///
+        
+        
+        
+        ///
         let confirmOrFail = create.create(content: self.content.text!, icon: self.iconName!, spendorsave: self.movedPigName!, date: movedDate!, price: movedPrice!)
         
         if confirmOrFail {

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		39D44A58F2A3CC87FC497A55 /* Pods_MoneyNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345F493A9FCA7ED16CCCFFD3 /* Pods_MoneyNote.framework */; };
-		8114C06A20D74D7100475F90 /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114C06920D74D7100475F90 /* CalenderViewController.swift */; };
 		8114C06C20D776EC00475F90 /* FristCreateNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114C06B20D776EC00475F90 /* FristCreateNote.swift */; };
 		8114C06E20D77F8700475F90 /* SecondCreateNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8114C06D20D77F8700475F90 /* SecondCreateNote.swift */; };
 		81197CCC20D3926000868986 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81197CCB20D3926000868986 /* PopupView.xib */; };
@@ -46,15 +45,18 @@
 		8145CF7A20DA232C00CA51AA /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6620DA232C00CA51AA /* phone.png */; };
 		8145CF7B20DA232C00CA51AA /* present.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6720DA232C00CA51AA /* present.png */; };
 		8145CF7C20DA232C00CA51AA /* ramen.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF6820DA232C00CA51AA /* ramen.png */; };
-		8145CF8620DA447F00CA51AA /* moneyNote.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF8520DA447F00CA51AA /* moneyNote.sqlite */; };
 		8145CF8820DA937700CA51AA /* NoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145CF8720DA937700CA51AA /* NoteCell.swift */; };
 		8145CF8A20DB427400CA51AA /* MemoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8145CF8920DB427400CA51AA /* MemoData.swift */; };
+		8145CF9220DFF72F00CA51AA /* moneyNote.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF9120DFF72F00CA51AA /* moneyNote.sqlite */; };
+		8145CF9420DFF92700CA51AA /* moneyNote2.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF9320DFF92600CA51AA /* moneyNote2.sqlite */; };
+		8145CF9620DFFC4B00CA51AA /* moneyNote3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF9520DFFC4B00CA51AA /* moneyNote3.sqlite */; };
+		8145CF9820E09F2A00CA51AA /* SDMiSaeng.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF9720E09F2A00CA51AA /* SDMiSaeng.ttf */; };
+		8145CF9A20E0A2FC00CA51AA /* loadingPage.png in Resources */ = {isa = PBXBuildFile; fileRef = 8145CF9920E0A2FC00CA51AA /* loadingPage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		345F493A9FCA7ED16CCCFFD3 /* Pods_MoneyNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoneyNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E328B8973D10E8E18783C21 /* Pods-MoneyNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyNote.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyNote/Pods-MoneyNote.release.xcconfig"; sourceTree = "<group>"; };
-		8114C06920D74D7100475F90 /* CalenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
 		8114C06B20D776EC00475F90 /* FristCreateNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FristCreateNote.swift; sourceTree = "<group>"; };
 		8114C06D20D77F8700475F90 /* SecondCreateNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondCreateNote.swift; sourceTree = "<group>"; };
 		81197CCB20D3926000868986 /* PopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
@@ -101,9 +103,13 @@
 		8145CF6620DA232C00CA51AA /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
 		8145CF6720DA232C00CA51AA /* present.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = present.png; sourceTree = "<group>"; };
 		8145CF6820DA232C00CA51AA /* ramen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ramen.png; sourceTree = "<group>"; };
-		8145CF8520DA447F00CA51AA /* moneyNote.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = moneyNote.sqlite; sourceTree = "<group>"; };
 		8145CF8720DA937700CA51AA /* NoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCell.swift; sourceTree = "<group>"; };
 		8145CF8920DB427400CA51AA /* MemoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoData.swift; sourceTree = "<group>"; };
+		8145CF9120DFF72F00CA51AA /* moneyNote.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = moneyNote.sqlite; sourceTree = "<group>"; };
+		8145CF9320DFF92600CA51AA /* moneyNote2.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = moneyNote2.sqlite; sourceTree = "<group>"; };
+		8145CF9520DFFC4B00CA51AA /* moneyNote3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = moneyNote3.sqlite; sourceTree = "<group>"; };
+		8145CF9720E09F2A00CA51AA /* SDMiSaeng.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SDMiSaeng.ttf; sourceTree = "<group>"; };
+		8145CF9920E0A2FC00CA51AA /* loadingPage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loadingPage.png; sourceTree = "<group>"; };
 		8B8062B9765EBD1F3CC29F89 /* Pods-MoneyNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneyNote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoneyNote/Pods-MoneyNote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,12 +167,12 @@
 				81197CCB20D3926000868986 /* PopupView.xib */,
 				81197CCD20D392CB00868986 /* SpendOrSave.swift */,
 				81197CF320D6B2FE00868986 /* showDetail.swift */,
-				8114C06920D74D7100475F90 /* CalenderViewController.swift */,
 				8114C06B20D776EC00475F90 /* FristCreateNote.swift */,
 				8114C06D20D77F8700475F90 /* SecondCreateNote.swift */,
 				8145CF5220DA0F7500CA51AA /* MoneyNoteDAO.swift */,
 				8145CF8720DA937700CA51AA /* NoteCell.swift */,
 				8145CF8920DB427400CA51AA /* MemoData.swift */,
+				8145CF9720E09F2A00CA51AA /* SDMiSaeng.ttf */,
 			);
 			path = MoneyNote;
 			sourceTree = "<group>";
@@ -174,7 +180,9 @@
 		8145CF3C20DA0DC000CA51AA /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
-				8145CF8520DA447F00CA51AA /* moneyNote.sqlite */,
+				8145CF9120DFF72F00CA51AA /* moneyNote.sqlite */,
+				8145CF9320DFF92600CA51AA /* moneyNote2.sqlite */,
+				8145CF9520DFFC4B00CA51AA /* moneyNote3.sqlite */,
 				8145CF4720DA0DD000CA51AA /* FMDatabase.h */,
 				8145CF3F20DA0DCF00CA51AA /* FMDatabase.m */,
 				8145CF4220DA0DCF00CA51AA /* FMDatabaseAdditions.h */,
@@ -194,6 +202,7 @@
 		8145CF5420DA230D00CA51AA /* image */ = {
 			isa = PBXGroup;
 			children = (
+				8145CF9920E0A2FC00CA51AA /* loadingPage.png */,
 				8145CF5F20DA232B00CA51AA /* bank.png */,
 				8145CF5620DA232A00CA51AA /* beer.png */,
 				8145CF6220DA232B00CA51AA /* bus.png */,
@@ -292,8 +301,10 @@
 				8145CF7A20DA232C00CA51AA /* phone.png in Resources */,
 				81421B6620D340720038A0EB /* LaunchScreen.storyboard in Resources */,
 				8145CF7120DA232C00CA51AA /* heal.png in Resources */,
+				8145CF9420DFF92700CA51AA /* moneyNote2.sqlite in Resources */,
 				8145CF7720DA232C00CA51AA /* clothes.png in Resources */,
 				8145CF6F20DA232C00CA51AA /* savePig.png in Resources */,
+				8145CF9A20E0A2FC00CA51AA /* loadingPage.png in Resources */,
 				8145CF6B20DA232C00CA51AA /* create.png in Resources */,
 				81197CCC20D3926000868986 /* PopupView.xib in Resources */,
 				8145CF6920DA232C00CA51AA /* rice.png in Resources */,
@@ -304,6 +315,8 @@
 				8145CF6E20DA232C00CA51AA /* confirm.png in Resources */,
 				8145CF7620DA232C00CA51AA /* bus.png in Resources */,
 				8145CF6A20DA232C00CA51AA /* beer.png in Resources */,
+				8145CF9820E09F2A00CA51AA /* SDMiSaeng.ttf in Resources */,
+				8145CF9620DFFC4B00CA51AA /* moneyNote3.sqlite in Resources */,
 				8145CF7B20DA232C00CA51AA /* present.png in Resources */,
 				81421B6320D340720038A0EB /* Assets.xcassets in Resources */,
 				8145CF6D20DA232C00CA51AA /* cash.png in Resources */,
@@ -313,7 +326,7 @@
 				8145CF6C20DA232C00CA51AA /* cancel.png in Resources */,
 				8145CF7420DA232C00CA51AA /* card.png in Resources */,
 				81421B6120D3406E0038A0EB /* Main.storyboard in Resources */,
-				8145CF8620DA447F00CA51AA /* moneyNote.sqlite in Resources */,
+				8145CF9220DFF72F00CA51AA /* moneyNote.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,7 +393,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8114C06A20D74D7100475F90 /* CalenderViewController.swift in Sources */,
 				8145CF8A20DB427400CA51AA /* MemoData.swift in Sources */,
 				8145CF4C20DA0DD000CA51AA /* FMDatabasePool.m in Sources */,
 				81197CF420D6B2FE00868986 /* showDetail.swift in Sources */,

@@ -18,31 +18,50 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var today: UILabel!
     
     @IBOutlet weak var totalMoney: UILabel!
-    @IBOutlet weak var totalSpendMoney: UILabel!
-    @IBOutlet weak var totalMonthSpendMoney: UILabel!
+    @IBOutlet weak var totalSpendMoney: UILabel! // 일간 지출
+    @IBOutlet weak var totalMonthSpendMoney: UILabel! // 월간 지출
     
     // 데이터 소스용 변수
     var noteList: [(row: Int, contents: String, icon: String, spendorsave: String, date: String, price: Int)]!
+    
+    var noteList2: [(row: Int, contents: String, icon: String, spendorsave: String, date: String, price: Int, year: String, yearMonth: String)]!
     
     var moneyDAO = MoneyNoteDAO() // SQLite를 담당할 객체
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        makeLabelTextToday()
         self.spendList.delegate = self
         self.spendList.dataSource = self
         
         self.calendar.delegate = self
         calendar.appearance.borderRadius = 0
         // 오늘 날짜 표시
-        makeLabelTextToday()
+        
         
         
         print("Aa")
         print(today.text!)
         print("aA")
         self.noteList = self.moneyDAO.find(date: today.text!)
-        self.totalMoney.text! = String(self.moneyDAO.findTotal())
+        //
+        let yearMonthDate = needDate(date: today.text!)
+        print(yearMonthDate.0)
+        print(yearMonthDate.1)
+        print(yearMonthDate.2)
+        
+        // 일간 지출
+        totalSpendMoney.text = String(self.moneyDAO.getDailySpendTotal(date: yearMonthDate.2, spendorsave: "spendPig.png"))
+        // 월간 지출
+        totalMonthSpendMoney.text = String(self.moneyDAO.getMonthlySpendTotal(date: yearMonthDate.1,spendorsave: "spendPig.png"))
+        
+        // 월간 수입
+        totalMoney.text = String(self.moneyDAO.getMonthlySpendTotal(date: yearMonthDate.1,spendorsave: "savePig.png"))
+        //let testData = self.moneyDAO.getALL()
+        //print(testData)
+        //self.totalMoney.text! = String(self.moneyDAO.findTotal())
+        
     }
 
     override func viewWillLayoutSubviews() {
@@ -66,6 +85,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // 어제
     @IBAction func yesterday(_ sender: Any) {
+        let yearMonthDate = needDate(date: today.text!)
         let nowDate = today.text!
         
         let dateFormatter = DateFormatter()
@@ -80,10 +100,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         calendar.reloadData()
         self.noteList = self.moneyDAO.find(date: today.text!)
         spendList.reloadData()
+        // 일간 지출
+        totalSpendMoney.text = String(self.moneyDAO.getDailySpendTotal(date: yearMonthDate.2, spendorsave: "spendPig.png"))
+        // 월간 지출
+        totalMonthSpendMoney.text = String(self.moneyDAO.getMonthlySpendTotal(date: yearMonthDate.1,spendorsave: "spendPig.png"))
+        
+        // 월간 수입
+        totalMoney.text = String(self.moneyDAO.getMonthlySpendTotal(date: yearMonthDate.1,spendorsave: "savePig.png"))
+        
+        
     }
     
     // 내일
     @IBAction func tomorrow(_ sender: Any) {
+        let yearMonthDate = needDate(date: today.text!)
         let nowDate = today.text!
         
         let dateFormatter = DateFormatter()
@@ -97,12 +127,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.today.text = dateString
         
         self.noteList = self.moneyDAO.find(date: today.text!)
-        print(today.text!)
         spendList.reloadData()
+        // 일간 지출
+        totalSpendMoney.text = String(self.moneyDAO.getDailySpendTotal(date: yearMonthDate.2, spendorsave: "spendPig.png"))
+        // 월간 지출
+        totalMonthSpendMoney.text = String(self.moneyDAO.getMonthlySpendTotal(date: yearMonthDate.1,spendorsave: "spendPig.png"))
+        
+        // 월간 수입
+        totalMoney.text = String(self.moneyDAO.getMonthlySpendTotal(date: yearMonthDate.1,spendorsave: "savePig.png"))
+        
+        
     }
     
     // 날짜 선택 시
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let yearMonthDate = needDate(date: today.text!)
         
         let makeDate = DateFormatter()
         makeDate.dateFormat = "YYYY년 M월 d일"
@@ -114,6 +153,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         //print(monthPosition.hashValue)
         //print(self.calendar.selectedDate!)
         print(now)
+        self.noteList = self.moneyDAO.find(date: today.text!)
+        spendList.reloadData()
+        // 일간 지출
+        totalSpendMoney.text = String(self.moneyDAO.getDailySpendTotal(date: yearMonthDate.2, spendorsave: "spendPig.png"))
+        // 월간 지출
+        totalMonthSpendMoney.text = String(self.moneyDAO.getMonthlySpendTotal(date: yearMonthDate.1,spendorsave: "spendPig.png"))
+        
+        // 월간 수입
+        totalMoney.text = String(self.moneyDAO.getMonthlySpendTotal(date: yearMonthDate.1,spendorsave: "savePig.png"))
+        
     }
     
     
@@ -166,6 +215,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return noteList.count
     }
 
+    // 일간 지출 변수
+    var dailySpend: Int = 0
+    var monthlySpend: Int = 0
+    // 월간 지출 변수
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let rowData = self.noteList[indexPath.row]
@@ -175,11 +229,45 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.price.text = String(rowData.price)
         cell.icon.image = UIImage(named: rowData.icon)
         
+        //
+//        let today = NSDate()
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "YYYY년 M월 d일"
+//        let dateString = dateFormatter.string(from: today as Date)
+        // 오늘 날짜와 비교
+//        let rowData2 = self.noteList2[indexPath.row]
+//        let a = "spendPig.png"
+//        let b = "savePig.png"
+//
+//        let testDate = today.text!
+//        let c = testDate.components(separatedBy: " ")
+//        var d = c[0]
+//        d.append(c[1]) // (ex 2018년 6월)
+//        // 지출 돼지와 같고 오늘 날짜와 같다면 ! 일간 지출
+//        if today.text! == rowData2.date && a == rowData2.spendorsave{
+//            dailySpend = dailySpend + rowData2.price
+//        }
+//
+//        if d == rowData2.yearMonth && a == rowData2.spendorsave {
+//            monthlySpend = monthlySpend + rowData2.price
+//        }
+//
+//        //if toda
+//        //
+//        totalSpendMoney.text = String(dailySpend)
         
+        let yearMonthDate = needDate(date: today.text!)
+        totalSpendMoney.text = String(self.moneyDAO.getDailySpendTotal(date: yearMonthDate.2, spendorsave: "spendPig.png"))
+        // 월간 지출
+        totalMonthSpendMoney.text = String(self.moneyDAO.getMonthlySpendTotal(date: yearMonthDate.1,spendorsave: "spendPig.png"))
+        
+        // 월간 수입
+        totalMoney.text = String(self.moneyDAO.getMonthlySpendTotal(date: yearMonthDate.1,spendorsave: "savePig.png"))
         
         return cell
     }
     
+    // 테이블 선택했을때
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
         let moveRow = self.noteList[indexPath.row].row
@@ -197,6 +285,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    // 드래그하여 삭제
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let rowData = self.noteList[indexPath.row]
@@ -212,5 +301,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "삭제"
+    }
+    
+    // MAKR: - 일,월,연간 지출을 위한 데이터 만들기
+    typealias makingNeedDate = (String, String, String)
+    func needDate(date: String) -> makingNeedDate {
+        let a = date.components(separatedBy: " ")
+        let year = a[0]
+        var yearMonth: String = a[0]
+        yearMonth.append(" ")
+        yearMonth.append(a[1])
+        let today = self.today.text!
+        return (year, yearMonth, today)
     }
 }
