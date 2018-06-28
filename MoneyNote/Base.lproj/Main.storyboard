@@ -104,7 +104,7 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showsScopeHandle" value="NO"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
-                                        <color key="value" red="1" green="0.95365170060000004" blue="0.4880820126" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="1" green="0.80659498861598422" blue="0.7989050947198606" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="todaySelectionColor">
                                         <color key="value" red="0.78485602249999997" green="1" blue="0.47623020939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -113,12 +113,15 @@
                                         <color key="value" red="0.36332286850000001" green="0.49746389089999998" blue="0.50746842619999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="useVeryShortWeekdaySymbols" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleWeekendColor">
+                                        <color key="value" red="1" green="0.092869963400000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s16-3R-yZb">
                                 <rect key="frame" x="122" y="367" width="141" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -131,9 +134,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDF-il-4bq">
-                                <rect key="frame" x="306" y="352" width="53" height="44"/>
+                                <rect key="frame" x="306" y="352" width="36" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="작성하기" image="create.png"/>
+                                <state key="normal" title="작성하기" image="create_1.png"/>
                                 <connections>
                                     <action selector="choiceSpendOrSave:" destination="Ozq-Ff-Jdp" eventType="touchUpInside" id="XzY-SU-eEk"/>
                                 </connections>
@@ -200,17 +203,12 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPe-35-USN">
-                                <rect key="frame" x="201" y="401" width="136" height="155"/>
+                                <rect key="frame" x="201" y="401" width="158" height="155"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="spendPig.png" image="spendPig.png"/>
                                 <connections>
                                     <action selector="moveToCreatePageWithSavePig:" destination="A39-cN-zIT" eventType="touchUpInside" id="7ZO-Yx-2Tz"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0T-rN-aXO">
-                                <rect key="frame" x="100" y="239" width="174" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="bank.png"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="금액 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6W-i6-Amw">
                                 <rect key="frame" x="37" y="101" width="52" height="30"/>
@@ -227,7 +225,7 @@
                                     <action selector="backToMain:" destination="A39-cN-zIT" eventType="touchUpInside" id="ALZ-2a-IxS"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ac-21-Npg">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="0ac-21-Npg">
                                 <rect key="frame" x="100" y="101" width="174" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -248,6 +246,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0T-rN-aXO">
+                                <rect key="frame" x="116" y="227" width="142" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="bank.png"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fvD-HL-M5H"/>
@@ -365,7 +368,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="23"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits"/>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="금액 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uDL-b0-myz">
                                         <rect key="frame" x="92" y="8" width="159" height="23"/>
@@ -411,7 +414,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="23"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
                                     </textView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -517,7 +520,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mSR-Na-KFK">
                                 <rect key="frame" x="77" y="202" width="282" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="numberPad"/>
                             </textView>
@@ -531,22 +534,22 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bv-13-Ezt">
                                 <rect key="frame" x="77" y="162" width="282" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z0q-Je-Kdi">
-                                <rect key="frame" x="77" y="368" width="282" height="83"/>
+                                <rect key="frame" x="78" y="376" width="282" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.9560546875" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ymq-00-Rrt">
-                                <rect key="frame" x="308" y="43" width="52" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ymq-00-Rrt">
+                                <rect key="frame" x="294" y="44" width="65" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="24"/>
-                                <state key="normal" title="수정하기"/>
+                                <state key="normal" title="수정하기" image="update.png"/>
                                 <connections>
                                     <action selector="updateNote:" destination="hQV-RB-8Kp" eventType="touchUpInside" id="SAK-fD-1lX"/>
                                 </connections>
@@ -565,15 +568,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RF-0z-c0e">
-                                <rect key="frame" x="194" y="43" width="51" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SDMiSaeng" family="Sandoll MiSaeng" pointSize="24"/>
-                                <state key="normal" title="취소하기"/>
-                                <connections>
-                                    <action selector="backToMain:" destination="hQV-RB-8Kp" eventType="touchUpInside" id="9aW-tA-306"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yK-Jh-Xdk">
                                 <rect key="frame" x="0.0" y="667" width="375" height="200"/>
                                 <subviews>
@@ -735,6 +729,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0RF-0z-c0e">
+                                <rect key="frame" x="215" y="44" width="71" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="취소하기" image="cancel.png"/>
+                                <connections>
+                                    <action selector="backToMain:" destination="hQV-RB-8Kp" eventType="touchUpInside" id="9aW-tA-306"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -767,6 +769,7 @@
     </scenes>
     <resources>
         <image name="bank.png" width="175" height="98"/>
+        <image name="bar.png" width="276" height="198"/>
         <image name="beer.png" width="170" height="235"/>
         <image name="bus.png" width="149" height="250"/>
         <image name="cancel.png" width="256" height="150"/>
@@ -775,7 +778,7 @@
         <image name="clothes.png" width="104" height="95"/>
         <image name="coffee.png" width="182" height="197"/>
         <image name="confirm.png" width="256" height="150"/>
-        <image name="create.png" width="330" height="330"/>
+        <image name="create_1.png" width="281" height="284"/>
         <image name="heal.png" width="213" height="212"/>
         <image name="juice.png" width="70" height="97"/>
         <image name="lunchbox.png" width="191" height="191"/>
@@ -786,5 +789,6 @@
         <image name="rice.png" width="195" height="224"/>
         <image name="savePig.png" width="204" height="303"/>
         <image name="spendPig.png" width="248" height="231"/>
+        <image name="update.png" width="363" height="213"/>
     </resources>
 </document>
