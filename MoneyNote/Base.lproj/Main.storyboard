@@ -342,7 +342,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUO-U7-3pk">
                                         <rect key="frame" x="285" y="292" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="noodle" image="ramen.png"/>
+                                        <state key="normal" title="ramen.png" image="ramen.png"/>
                                         <connections>
                                             <action selector="changeIcon:" destination="qEv-XJ-r94" eventType="touchUpInside" id="PLE-Nt-x6i"/>
                                         </connections>
